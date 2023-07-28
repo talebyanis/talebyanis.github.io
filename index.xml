@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>🏠</title>
+    <link>http://talebyanis.github.io/</link>
+    <description>Recent content on 🏠</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Jul 2023 19:31:01 +0200</lastBuildDate><atom:link href="http://talebyanis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resume</title>
+      <link>http://talebyanis.github.io/cv/</link>
+      <pubDate>Thu, 27 Jul 2023 20:53:39 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/cv/</guid>
+      <description>Last update : 27/07/23
+Yanis TALEB, 22 years old. I am a Network &amp;amp; Telecommunication engineering student 📡 at UTT.
+Here is my updated resume.
+If needed, you can contact me via :
+LinkedIn talebyanis@laposte.net Work Experience 👨🏻‍💼 &amp;amp; Education 👨🏻‍🎓 2019 👶🏻 Scientific Baccalaureate at Lycée Henri Poincaré, Nancy 2020 🦠 Google Machine Learning Certificate Completion certificate of the Machine Learning course at intermediate level organized by Google. 2021 🦠 PEH (Practical Ethical Hacker) INE PTS (Penetration Testing Student) DUT Informatique Graduated at IUT Nancy-Charlemagne INRIA Nancy Grand-Est (Internship) 3 months internship in which I implemented a debugging tool for FPGA with an integration for the Silice Language.</description>
+    </item>
+    
+    <item>
+      <title># whoami</title>
+      <link>http://talebyanis.github.io/general/whoami/</link>
+      <pubDate>Thu, 27 Jul 2023 19:31:01 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/general/whoami/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NFC Hacking (Mifare Mini) 🛜</title>
+      <link>http://talebyanis.github.io/cybersecurity/nfc-hacking/</link>
+      <pubDate>Wed, 14 Sep 2022 21:06:00 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/cybersecurity/nfc-hacking/</guid>
+      <description>How can we hack into a vending machine ?</description>
+    </item>
+    
+    <item>
+      <title>NFC Hacking (Mifare Mini) 🛜</title>
+      <link>http://talebyanis.github.io/posts/nfc-hacking/</link>
+      <pubDate>Wed, 14 Sep 2022 21:06:00 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/posts/nfc-hacking/</guid>
+      <description>How can we hack into a vending machine ?</description>
+    </item>
+    
+    <item>
+      <title>A simple guide to become a Hacker 👨🏻‍💻</title>
+      <link>http://talebyanis.github.io/posts/how-to-infosec/</link>
+      <pubDate>Mon, 15 Aug 2022 18:32:22 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/posts/how-to-infosec/</guid>
+      <description>My advices if you want to get started in cybersecurity</description>
+    </item>
+    
+    <item>
+      <title>Give me back my Privacy 🥷</title>
+      <link>http://talebyanis.github.io/posts/privacy101/</link>
+      <pubDate>Tue, 26 Jul 2022 18:00:28 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/posts/privacy101/</guid>
+      <description>Quelques alternatives et outils pour une meilleure hygiène numérique</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>android on 🏠</title>
+    <link>http://talebyanis.github.io/tags/android/</link>
+    <description>Recent content in android on 🏠</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Jul 2022 18:00:28 +0200</lastBuildDate><atom:link href="http://talebyanis.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Give me back my Privacy 🥷</title>
+      <link>http://talebyanis.github.io/posts/privacy101/</link>
+      <pubDate>Tue, 26 Jul 2022 18:00:28 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/posts/privacy101/</guid>
+      <description>Quelques alternatives et outils pour une meilleure hygiène numérique</description>
+    </item>
+    
+  </channel>
+</rss>

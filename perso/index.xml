@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Persoes on katanarch</title>
+    <link>http://talebyanis.github.io/perso/</link>
+    <description>Recent content in Persoes on katanarch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Apr 2022 00:45:25 +0200</lastBuildDate><atom:link href="http://talebyanis.github.io/perso/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title># whoami</title>
+      <link>http://talebyanis.github.io/perso/whoami/</link>
+      <pubDate>Fri, 29 Apr 2022 00:45:25 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/perso/whoami/</guid>
+      <description>donyaya{f1r57_p0s7}</description>
+    </item>
+    
+  </channel>
+</rss>

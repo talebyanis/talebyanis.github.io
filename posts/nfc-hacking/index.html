@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>NFC Hacking (Mifare Mini) 🛜 | 🏠</title>
+<meta name="keywords" content="hardware, nfc, cybersecurity, mifare, mini, mizip">
+<meta name="description" content="How can we hack into a vending machine ?">
+<meta name="author" content="">
+<link rel="canonical" href="http://talebyanis.github.io/posts/nfc-hacking/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://talebyanis.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://talebyanis.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://talebyanis.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://talebyanis.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://talebyanis.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="NFC Hacking (Mifare Mini) 🛜" />
+<meta property="og:description" content="How can we hack into a vending machine ?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://talebyanis.github.io/posts/nfc-hacking/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-14T21:06:00+02:00" />
+<meta property="article:modified_time" content="2022-09-14T21:06:00+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NFC Hacking (Mifare Mini) 🛜"/>
+<meta name="twitter:description" content="How can we hack into a vending machine ?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://talebyanis.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "NFC Hacking (Mifare Mini) 🛜",
+      "item": "http://talebyanis.github.io/posts/nfc-hacking/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "NFC Hacking (Mifare Mini) 🛜",
+  "name": "NFC Hacking (Mifare Mini) 🛜",
+  "description": "How can we hack into a vending machine ?",
+  "keywords": [
+    "hardware", "nfc", "cybersecurity", "mifare", "mini", "mizip"
+  ],
+  "articleBody": " Disclaimer PLEASE, DO NOT USE WHAT YOU LEARN HERE FOR MALICIOUS ACTS, ONLY DO IT FOR LEARNING PURPOSES / PENTEST !\nYou are here to learn, I don’t want to be involved in any malicious act.\nLike Uncle Ben said : “With great power comes great responsibility”.\nIntroduction Today, we will see how unsecure is a MiZip.\nYou will be surprised by the simplicity of the “attack” that we are gonna experiment.\nI’ll try to simplify as much as I can, you are free to go further using your Google-fu.\nLet’s begin with theory ! Context 2 weeks ago, I didn’t know anything about NFC !\nThe company where I am working as an Intern gave me a MiZip, a little key that you can reload with coins and then use to pay your snack / coffee.\nI instantly asked myself : “How does it work ?”.\nMy only clue was the name of the key.\nThat’s how I started my investigation !\nWhat’s NFC ? The MiZip uses NFC to communicate with the vending machine… but what is it ?\nNFC is a proximity-based wireless communication protocol.\nIt is limited by an extremly short range (less than 10cm) unlike WiFi or Bluetooth that are long range wireless comunication protocols.\nYou can find it on your smartphone, on your credit card, on the badge you use to open your building…\nNFC is based on RFID, another older protocol used for the same purpose.\nIt is used to access office building, hotel rooms etc…\nThe main difference between these two protocols is their transmission ranges.\nRFID can be used with a maximum distance of 460 meters depending on the power source.\nNFC is newer and comes with some features missing on RFID like the possibility to hold multiple “cards” in one device (virtual cards).\nYou may ask yourself : “How does it work ?”.\nThe idea behind NFC is pretty simple !\nThere are two actors in an NFC transaction : the NFC tag and the NFC reader.\nAn NFC reader connects to one NFC tag at a time to exchange encrypted data.\nThe reader supplies the tag with electricity to get data.\nA smartphone can act as a NFC tag (for wireless payment for example) and as a NFC reader (what we’ll use today).\nNow that you have the theory behind NFC, let’s dig into the MiZip.\nWhat is a MiZip ? Name MiZip Tag Type Mifare Mini Block Size 16 byte Number of Sectors 5 Number of Blocks 20 There are many NFC manufacturers, the most known is Mifare from NXP Semiconductors.\nThe most common tag from Mifare is the Mifare Classic (the one we will hack today), but there are also Mifare Plus, Mifare Ultralight (broken af) and the Mifare DESFire (still secured today, using 3DES).\nThe Classic use a security protocol called CRYPTO1 (which have been broken in 2008 😎) made by NXP itself.\nThe tag is used to store an ID, but it can also store data !\nFor example, the ID can be used by a transport company to verify if somebody is allowed to travel and the data can store the contract (it has been the case in the London Underground).\nA tag stores hexadecimal values in a very precise way.\nValues are lined up in sectors composed by many blocks.\nThe “Mi” in MiZip stands for Mini because it contains a Mifare Mini, which is basically the same as the Classic but “smaller”.\nHere you’ll find a comparaison between these tags.\nHow is the Mifare Mini protected ? As I said, the Mifare Mini is a small Mifare Classic.\nEach sector of a MIFARE Classic card has two authentication keys: key A and key B.\nThese two keys together with access conditions are stored in the last block of each sector (the so-called sector trailer).\nsource\nIf we find a way to retrieve keyA or keyB, we’ll be able to read and write on the MiZip !\nWell, I think that we have enough theory now, let’s hack the MiZip !\nI’ll try to find what is stored in it.\nHacking time ! How to communicate with the MiZip ? Well, this would be interesting to see if we can read what’s in the MiZip when it communicates with the reader !\nMy research first led me to a free Android app called MCT (Mifare Classic Tools).\nIt can be used to read, analyze and write an NFC tag.\nIf your smartphone is compatible with NFC, just put the MiZip on the back of it and a popup will appear.\nYou’ll then be able to interact with the NFC tag.\nhere’s what it looks like\nWe are now capable to interract with the MiZip.\nLet’s see if we can read what’s contained in each sector.\nJust tap on “Read Tag” and you’ll see this screen :\nHere, you have the choice between 3 wordlists containing known keys.\nHowever, they will not work (they didn’t on mine).\nTo find your keys, you will need to bruteforce them with something more powerful.\nHere comes the Proxmark3 ! The Proxmark3 is a hardware tool for RFID \u0026 NFC security analysis.\nIt allows users to read, write, analyze, clone and bruteforce the majority of RFID and NFC cards.\nYou can buy one for 40€ on aliexpress.\nHere is the GitHub you will need to consult to setup your proxmark3.\nOnce it is ready, plug it on your PC and put your MiZip on it like on the picture above !\nNow let’s use the Proxmark script to bruteforce the keys.\nToday, we’ll act like script kiddies so we are gonna use the “autopwn” command.\nThis will test every known attack against the Mifare Mini.\nUse the following command :\nhf mf autopwn --mini The result will be stored in some files and keys will be shown during the process !\nHere are my keys !\nAs you can see, the attack lasted 313 secondes / 5 minutes !\nTo do so, the Proxmark3 used a Hardnested attack.\nLet’s read what’s in our MiZip ! We are now able to fully study our MiZip because we have its keys and a dump of each sector.\nValues are stored in hexadecimal, I took each block and tried to understand what does it mean with what I know and some docs :\n\"blocks\": { \"0\": \"CD1A1C74BF890400C808002000000017\", --sector0 \"1\": \"6200488849884A884B88000000000000\", \"2\": \"00000000000000000000000000000000\", \"3\": \"A0A1A2A3A4A5787788C1B4C132439EEF\", \"4\": \"0100003808008001000100000000B102\", --sector1 \"5\": \"01000001000080010001000000008001\", \"6\": \"AA020000000000000000000000000000\", \"7\": \"C408465144FF78778830ED584949C455\", \"8\": \"00CB02C9000000000000000000000050\", --sector2 \"9\": \"00670265000000000000000000000051\", \"10\": \"55510000000000000000000000000000\", \"11\": \"666FD5435F35787788116F9354E42E35\", \"12\": \"00000000000000000000000000000000\", --sector3 \"13\": \"00000000000000000000000000000001\", \"14\": \"55010000000000000000000000000000\", \"15\": \"2F685DDBE11378778800B639DE6C4ADA\", \"16\": \"00000000000000000000000000000000\", --sector4 \"17\": \"00000000000000000000000000000001\", \"18\": \"55010000000000000000000000000000\", \"19\": \"FC60AB5B898A78778800AC67EA3D3189\" } First informations :\nThe first 4 bytes ( CD1A1C74 ) represent the ID of the tag. Blocks 3, 7, 11, 15 and 19 contains keyA and keyB separated with 4 bytes called Access Bytes. As you can see, the first keyA ( A1A2A3A4A5 ) is very easy to guess. Now, let’s focus on the third sector.\nMy MiZip contained 6,15€ when I dumped it.\nIf you look at block number 9, it is possible to retrieve this value.\n6702 -\u003e 0267 when you convert it from little endianess, which gives 615 in decimal.\nTo verify this, I added 1€ in my MiZip using my vending machine and checked the value again.\nThis means that my credits are stored on the MiZip !\nThe next byte represents the checksum (result of a XOR operation between 67 and 02).\nOn block 9, I also have 51 which is a counter.\nIt is used to avoid NFC cloning.\nWhat we found :\n6702 is the amount of credit in little-endianess, if you convert (0267) from hex to decimal, you’ll find 615 which means 6,15€. 65 is a checksum, the result of a xor operation between 67 and 02. 51 is a counter, if you look closely, the value is repeated on block number 10. Well, if we modify 6702 with the value we want and append it the right checksum, we should be able to create credits ! 💵\nBonus : overwriting block number 9 I wanted to know if it is possible to overwrite the ninth block with another value.\nLet’s say that I want 20€ on my MiZip, I should write :\n00D007D7000000000000000000000051 To do so, with the proxmark3, I typed the following command :\nhf mf wrbl -b -k \u003c2nd sector keyB\u003e -d … and this worked.\n🏆 Achievement unlocked 🏆 : I became a big rat !\nBecause I wear a white hat, I didn’t use this\nConclusion As you can see, this attack is simple to reproduce !\nToday, we hacked a MiZip but we could have aimed another card. That’s why you gotta be careful with yours.\nMy goal is to show you how easy it is for an attacker to play with RFID/NFC tags.\nFrom scratch, only a few hours allowed me to understand how to hack it.\nI’m sorry if I made mistakes in my explanations and I would be pleased if you tell me what to correct if you find some !\nSome sources https://github.com/RfidResearchGroup/proxmark3 (this dude is the RFID god)\nhttps://en.wikipedia.org/wiki/Near-field_communication\nhttps://hackmethod.com/hacking-mifare-rfid/?v=11aedd0e4327\nhttps://jurocknsail.github.io/yncrea-rfid/06_mifare-classic-1k-hacking/\n",
+  "wordCount" : "1533",
+  "inLanguage": "en",
+  "datePublished": "2022-09-14T21:06:00+02:00",
+  "dateModified": "2022-09-14T21:06:00+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://talebyanis.github.io/posts/nfc-hacking/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏠",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://talebyanis.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://talebyanis.github.io/" accesskey="h" title="🏠 (Alt + H)">🏠</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      NFC Hacking (Mifare Mini) 🛜
+    </h1>
+    <div class="post-meta"><span title='2022-09-14 21:06:00 +0200 CEST'>September 14, 2022</span>&nbsp;·&nbsp;8 min
+
+</div>
+  </header> 
+  <div class="post-content"><p><img loading="lazy" src="/posts/nfc-hacking/mifaremini.png" alt="&amp;quot;&amp;quot;"  />
+</p>
+<h2 id="disclaimer">Disclaimer<a hidden class="anchor" aria-hidden="true" href="#disclaimer">#</a></h2>
+<p><strong>PLEASE, DO NOT USE WHAT YOU LEARN HERE FOR MALICIOUS ACTS,</strong>
+<strong>ONLY DO IT FOR LEARNING PURPOSES / PENTEST !</strong></p>
+<p>You are here to learn, I don&rsquo;t want to be involved in any malicious act.</p>
+<p>Like Uncle Ben said : &ldquo;With great power comes great responsibility&rdquo;.</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/blackhat.gif" alt="&amp;ldquo;meme coffee&amp;rdquo;"  />
+</p>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Today, we will see how unsecure is a <a href="https://newis.evocagroup.com/en/payment-solutions/mizip">MiZip</a>.</p>
+<p>You will be surprised by the simplicity of the &ldquo;attack&rdquo; that we are gonna experiment.</p>
+<p>I&rsquo;ll try to simplify as much as I can, you are free to go further using your Google-fu.</p>
+<h2 id="lets-begin-with-theory-">Let&rsquo;s begin with theory !<a hidden class="anchor" aria-hidden="true" href="#lets-begin-with-theory-">#</a></h2>
+<h3 id="context">Context<a hidden class="anchor" aria-hidden="true" href="#context">#</a></h3>
+<p>2 weeks ago, I didn&rsquo;t know anything about NFC !</p>
+<p>The company where I am working as an Intern gave me a MiZip, a little key that you can reload with coins and then use to pay your snack / coffee.</p>
+<p>I instantly asked myself : &ldquo;How does it work ?&rdquo;.</p>
+<p>My only clue was the name of the key.</p>
+<p>That&rsquo;s how I started my investigation !</p>
+<h3 id="whats-nfc-">What&rsquo;s NFC ?<a hidden class="anchor" aria-hidden="true" href="#whats-nfc-">#</a></h3>
+<p>The MiZip uses NFC to communicate with the vending machine&hellip; but what is it ?</p>
+<p><a href="https://fr.wikipedia.org/wiki/Near-field_communication">NFC</a> is a proximity-based wireless communication protocol.</p>
+<p>It is limited by an <em>extremly</em> short range (less than 10cm) unlike WiFi or Bluetooth that are long range wireless comunication protocols.</p>
+<p>You can find it on your smartphone, on your credit card, on the badge you use to open your building&hellip;</p>
+<p><strong>NFC is based on <a href="https://fr.wikipedia.org/wiki/Radio-identification">RFID</a></strong>, another older protocol used for the same purpose.</p>
+<p>It is used to access office building, hotel rooms etc&hellip;</p>
+<p>The main difference between these two protocols is their transmission ranges.</p>
+<p>RFID can be used with a maximum distance of 460 meters depending on the power source.</p>
+<p>NFC is newer and comes with some features missing on RFID like the possibility to hold multiple &ldquo;cards&rdquo; in one device (virtual cards).</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/rfid_nfc.jpg" alt="rfid vs nfc"  />
+</p>
+<p>You may ask yourself : &ldquo;How does it work ?&rdquo;.</p>
+<p>The idea behind NFC is pretty simple !</p>
+<p>There are two actors in an NFC transaction : the NFC tag and the NFC reader.</p>
+<p>An NFC reader connects to one NFC tag at a time to exchange encrypted data.</p>
+<p>The reader supplies the tag with electricity to get data.</p>
+<p>A smartphone can act as a NFC tag (for wireless payment for example) and as a NFC reader (what we&rsquo;ll use today).</p>
+<p>Now that you have the theory behind NFC, let&rsquo;s dig into the MiZip.</p>
+<h3 id="what-is-a-mizip-">What is a MiZip ?<a hidden class="anchor" aria-hidden="true" href="#what-is-a-mizip-">#</a></h3>
+<p><img loading="lazy" src="/posts/nfc-hacking/mizip.png" alt="mizip"  />
+</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>MiZip</td>
+</tr>
+<tr>
+<td><strong>Tag Type</strong></td>
+<td><a href="https://www.bgi-cartes.fr/produit/carte-mifare-mini-mf1-ic-s20-61">Mifare Mini</a></td>
+</tr>
+<tr>
+<td><strong>Block Size</strong></td>
+<td>16 byte</td>
+</tr>
+<tr>
+<td><strong>Number of Sectors</strong></td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong>Number of Blocks</strong></td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>There are many NFC manufacturers, the most known is Mifare from NXP Semiconductors.</p>
+<p>The most common tag from Mifare is the <strong>Mifare Classic</strong> (the one we will hack today), but there are also Mifare Plus, Mifare Ultralight (broken af) and the Mifare DESFire (still secured today, using 3DES).</p>
+<p>The Classic use a security protocol called CRYPTO1 (which have been broken in 2008 😎) made by NXP itself.</p>
+<p>The tag is used to store an ID, but it can also store data !</p>
+<p>For example, the ID can be used by a transport company to verify if somebody is allowed to travel and the data can store the contract (it has been the case in the London Underground).</p>
+<p>A tag stores hexadecimal values in a very precise way.</p>
+<p>Values are lined up in <strong>sectors</strong> composed by many <strong>blocks</strong>.</p>
+<p>The &ldquo;Mi&rdquo; in MiZip stands for Mini because it contains a <strong>Mifare Mini</strong>, which is basically the same as the Classic but &ldquo;smaller&rdquo;.</p>
+<p><a href="https://shop.mtoolstec.com/whats-the-differences-between-mifare-classic-1k-4k-and-mini-card.html">Here</a> you&rsquo;ll find a comparaison between these tags.</p>
+<h3 id="how-is-the-mifare-mini-protected-">How is the Mifare Mini protected ?<a hidden class="anchor" aria-hidden="true" href="#how-is-the-mifare-mini-protected-">#</a></h3>
+<p>As I said, the Mifare Mini is a small Mifare Classic.</p>
+<p><strong>Each sector of a MIFARE Classic card has two authentication keys: key A and key B.</strong></p>
+<p>These two keys together with access conditions are stored in the last block of each sector (the so-called sector trailer).</p>
+<p><a href="https://stackoverflow.com/questions/28050718/mifare-1k-authentication-keys/28051227#28051227">source</a></p>
+<p>If we find a way to retrieve keyA or keyB, we&rsquo;ll be able to read and write on the MiZip !</p>
+<p>Well, I think that we have enough theory now, let&rsquo;s hack the MiZip !</p>
+<p>I&rsquo;ll try to find what is stored in it.</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/hacker_meme.gif" alt="hacker meme"  />
+</p>
+<h2 id="hacking-time-">Hacking time !<a hidden class="anchor" aria-hidden="true" href="#hacking-time-">#</a></h2>
+<h3 id="how-to-communicate-with-the-mizip-">How to communicate with the MiZip ?<a hidden class="anchor" aria-hidden="true" href="#how-to-communicate-with-the-mizip-">#</a></h3>
+<p>Well, this would be interesting to see if we can read what&rsquo;s in the MiZip when it communicates with the reader !</p>
+<p>My research first led me to a free Android app called MCT (Mifare Classic Tools).</p>
+<p>It can be used to read, analyze and write an NFC tag.</p>
+<p>If your smartphone is compatible with NFC, just put the MiZip on the back of it and a popup will appear.</p>
+<p>You&rsquo;ll then be able to interact with the NFC tag.</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/mct.png" alt="MCT"  />
+
+<em>here&rsquo;s what it looks like</em></p>
+<p>We are now capable to interract with the MiZip.</p>
+<p>Let&rsquo;s see if we can read what&rsquo;s contained in each sector.</p>
+<p>Just tap on &ldquo;Read Tag&rdquo; and you&rsquo;ll see this screen :</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/mct2.png" alt="MCT2"  />
+</p>
+<p>Here, you have the choice between 3 wordlists containing known keys.</p>
+<p>However, they will not work (they didn&rsquo;t on mine).</p>
+<p>To find your keys, you will need to bruteforce them with something more powerful.</p>
+<h3 id="here-comes-the-proxmark3-">Here comes the Proxmark3 !<a hidden class="anchor" aria-hidden="true" href="#here-comes-the-proxmark3-">#</a></h3>
+<p><img loading="lazy" src="/posts/nfc-hacking/proxmark3.jpg" alt="Proxmark3"  />
+</p>
+<p>The Proxmark3 is a hardware tool for RFID &amp; NFC security analysis.</p>
+<p>It allows users to read, write, analyze, clone and bruteforce the majority of RFID and NFC cards.</p>
+<p>You can buy one for 40€ on aliexpress.</p>
+<p>Here is the <a href="https://github.com/RfidResearchGroup/proxmark3">GitHub</a> you will need to consult to setup your proxmark3.</p>
+<p>Once it is ready, plug it on your PC and put your MiZip on it like on the picture above !</p>
+<p>Now let&rsquo;s use the Proxmark script to bruteforce the keys.</p>
+<p>Today, we&rsquo;ll act like script kiddies so we are gonna use the &ldquo;autopwn&rdquo; command.</p>
+<p>This will test every known attack against the Mifare Mini.</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/autopwn.png" alt="autopwn"  />
+</p>
+<p>Use the following command :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hf mf autopwn --mini
+</span></span></code></pre></div><p>The result will be stored in some files and keys will be shown during the process !</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/bruteforce.gif" alt="bruteforce"  />
+</p>
+<p>Here are my keys !</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/keys.jpg" alt="keys"  />
+</p>
+<p>As you can see, the attack lasted 313 secondes / 5 minutes !</p>
+<p>To do so, the Proxmark3 used a <a href="https://github.com/bennesp/hardnested">Hardnested attack</a>.</p>
+<h3 id="lets-read-whats-in-our-mizip-">Let&rsquo;s read what&rsquo;s in our MiZip !<a hidden class="anchor" aria-hidden="true" href="#lets-read-whats-in-our-mizip-">#</a></h3>
+<p>We are now able to fully study our MiZip because we have its keys and a dump of each sector.</p>
+<p>Values are stored in hexadecimal, I took each block and tried to understand what does it mean with what I know and some docs :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;blocks&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;0&#34;</span>: <span style="color:#e6db74">&#34;CD1A1C74BF890400C808002000000017&#34;</span>, <span style="color:#960050;background-color:#1e0010">--sector0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;1&#34;</span>: <span style="color:#e6db74">&#34;6200488849884A884B88000000000000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;2&#34;</span>: <span style="color:#e6db74">&#34;00000000000000000000000000000000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;3&#34;</span>: <span style="color:#e6db74">&#34;A0A1A2A3A4A5787788C1B4C132439EEF&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;4&#34;</span>: <span style="color:#e6db74">&#34;0100003808008001000100000000B102&#34;</span>, <span style="color:#960050;background-color:#1e0010">--sector1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;5&#34;</span>: <span style="color:#e6db74">&#34;01000001000080010001000000008001&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;6&#34;</span>: <span style="color:#e6db74">&#34;AA020000000000000000000000000000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;7&#34;</span>: <span style="color:#e6db74">&#34;C408465144FF78778830ED584949C455&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;8&#34;</span>: <span style="color:#e6db74">&#34;00CB02C9000000000000000000000050&#34;</span>, <span style="color:#960050;background-color:#1e0010">--sector2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;9&#34;</span>: <span style="color:#e6db74">&#34;00670265000000000000000000000051&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;10&#34;</span>: <span style="color:#e6db74">&#34;55510000000000000000000000000000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;11&#34;</span>: <span style="color:#e6db74">&#34;666FD5435F35787788116F9354E42E35&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;12&#34;</span>: <span style="color:#e6db74">&#34;00000000000000000000000000000000&#34;</span>, <span style="color:#960050;background-color:#1e0010">--sector3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;13&#34;</span>: <span style="color:#e6db74">&#34;00000000000000000000000000000001&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;14&#34;</span>: <span style="color:#e6db74">&#34;55010000000000000000000000000000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;15&#34;</span>: <span style="color:#e6db74">&#34;2F685DDBE11378778800B639DE6C4ADA&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;16&#34;</span>: <span style="color:#e6db74">&#34;00000000000000000000000000000000&#34;</span>, <span style="color:#960050;background-color:#1e0010">--sector4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;17&#34;</span>: <span style="color:#e6db74">&#34;00000000000000000000000000000001&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;18&#34;</span>: <span style="color:#e6db74">&#34;55010000000000000000000000000000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;19&#34;</span>: <span style="color:#e6db74">&#34;FC60AB5B898A78778800AC67EA3D3189&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>First informations :</p>
+<ul>
+<li>The first 4 bytes (
+<code>CD1A1C74</code>
+) represent the <strong>ID</strong> of the tag.</li>
+<li>Blocks 3, 7, 11, 15 and 19 contains <strong>keyA</strong> and <strong>keyB</strong> separated with 4 bytes called <strong>Access Bytes</strong>.
+As you can see, the first keyA (
+<code>A1A2A3A4A5</code>
+) is very easy to guess.</li>
+</ul>
+<p>Now, let&rsquo;s focus on the third sector.</p>
+<p>My MiZip contained 6,15€ when I dumped it.</p>
+<p>If you look at block number 9, it is possible to retrieve this value.</p>
+<p><code>6702</code>
+-&gt; <code>0267</code>
+when you convert it from little endianess, which gives 615 in decimal.</p>
+<p><em>To verify this, I added 1€ in my MiZip using my vending machine and checked the value again.</em></p>
+<p><strong>This means that my credits are stored on the MiZip !</strong></p>
+<p><img loading="lazy" src="/posts/nfc-hacking/freefood.jpg" alt="freefood"  />
+</p>
+<p>The next byte represents the checksum (result of a XOR operation between 67 and 02).</p>
+<p>On block 9, I also have <code>51</code>
+which is a counter.</p>
+<p>It is used to avoid NFC cloning.</p>
+<p>What we found :</p>
+<ul>
+<li><code>6702</code>
+is the amount of credit in <a href="https://en.wikipedia.org/wiki/Endianness">little-endianess</a>, if you convert (0267) from hex to decimal, you&rsquo;ll find 615 which means 6,15€.</li>
+<li><code>65</code>
+is a checksum, the result of a xor operation between <code>67</code> and <code>02</code>.</li>
+<li><code>51</code>
+is a counter, if you look closely, the value is repeated on block number 10.</li>
+</ul>
+<p>Well, if we modify <code>6702</code>
+with the value we want and append it the right checksum, we should be able to create credits ! 💵</p>
+<h3 id="bonus--overwriting-block-number-9">Bonus : overwriting block number 9<a hidden class="anchor" aria-hidden="true" href="#bonus--overwriting-block-number-9">#</a></h3>
+<p>I wanted to know if it is possible to overwrite the ninth block with another value.</p>
+<p>Let&rsquo;s say that I want 20€ on my MiZip, I should write :</p>
+<pre tabindex="0"><code>00D007D7000000000000000000000051
+</code></pre><p>To do so, with the proxmark3, I typed the following command :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hf mf wrbl -b -k &lt;2nd sector keyB&gt; -d &lt;block to write&gt;
+</span></span></code></pre></div><p>&hellip; and this worked.</p>
+<p>🏆 Achievement unlocked 🏆 : I became a big rat !</p>
+<p><img loading="lazy" src="/posts/nfc-hacking/rat.jpg" alt="Rat"  />
+</p>
+<p><strong>Because I wear a white hat, I didn&rsquo;t use this</strong></p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>As you can see, this attack is simple to reproduce !</p>
+<p>Today, we hacked a MiZip but we could have aimed another card. That&rsquo;s why you gotta be careful with yours.</p>
+<p>My goal is to show you how easy it is for an attacker to play with RFID/NFC tags.</p>
+<p>From scratch, only a few hours allowed me to understand how to hack it.</p>
+<p><em>I&rsquo;m sorry if I made mistakes in my explanations and I would be pleased if you tell me what to correct if you find some !</em></p>
+<h3 id="some-sources">Some sources<a hidden class="anchor" aria-hidden="true" href="#some-sources">#</a></h3>
+<p><a href="https://github.com/RfidResearchGroup/proxmark3">https://github.com/RfidResearchGroup/proxmark3</a> (this dude is the RFID god)</p>
+<p><a href="https://en.wikipedia.org/wiki/Near-field_communication">https://en.wikipedia.org/wiki/Near-field_communication</a></p>
+<p><a href="https://hackmethod.com/hacking-mifare-rfid/?v=11aedd0e4327">https://hackmethod.com/hacking-mifare-rfid/?v=11aedd0e4327</a></p>
+<p><a href="https://jurocknsail.github.io/yncrea-rfid/06_mifare-classic-1k-hacking/">https://jurocknsail.github.io/yncrea-rfid/06_mifare-classic-1k-hacking/</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://talebyanis.github.io/tags/hardware/">hardware</a></li>
+      <li><a href="http://talebyanis.github.io/tags/nfc/">nfc</a></li>
+      <li><a href="http://talebyanis.github.io/tags/cybersecurity/">cybersecurity</a></li>
+      <li><a href="http://talebyanis.github.io/tags/mifare/">mifare</a></li>
+      <li><a href="http://talebyanis.github.io/tags/mini/">mini</a></li>
+      <li><a href="http://talebyanis.github.io/tags/mizip/">mizip</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://talebyanis.github.io/">🏠</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

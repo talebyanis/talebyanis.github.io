@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Give me back my Privacy 🥷 | 🏠</title>
+<meta name="keywords" content="privacy, ungoogle, android, windows, linux">
+<meta name="description" content="Quelques alternatives et outils pour une meilleure hygiène numérique">
+<meta name="author" content="">
+<link rel="canonical" href="http://talebyanis.github.io/posts/privacy101/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://talebyanis.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://talebyanis.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://talebyanis.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://talebyanis.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://talebyanis.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Give me back my Privacy 🥷" />
+<meta property="og:description" content="Quelques alternatives et outils pour une meilleure hygiène numérique" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://talebyanis.github.io/posts/privacy101/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-26T18:00:28+02:00" />
+<meta property="article:modified_time" content="2022-07-26T18:00:28+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Give me back my Privacy 🥷"/>
+<meta name="twitter:description" content="Quelques alternatives et outils pour une meilleure hygiène numérique"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://talebyanis.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Give me back my Privacy 🥷",
+      "item": "http://talebyanis.github.io/posts/privacy101/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Give me back my Privacy 🥷",
+  "name": "Give me back my Privacy 🥷",
+  "description": "Quelques alternatives et outils pour une meilleure hygiène numérique",
+  "keywords": [
+    "privacy", "ungoogle", "android", "windows", "linux"
+  ],
+  "articleBody": " Préambule Je n’ai pas trouvé énormément de guides en destinés au grand public portant sur la protection de la vie privée.\nCe post est donc exceptionnellement écrit en francais.\nAussi, je tiens à insister sur le fait que je ne porte aucun jugement de valeur aux personnes qui ne sont pas intéressées par la protection de leur vie privée.\nL’objet de ce post n’est pas d’expliquer pourquoi se protéger mais comment le faire.\nEnfin, ce post est voué à évoluer au fur et à mesure de mes découvertes et de vos propositions.\nPour aller plus loin, je vous invite à vous référer aux sources qui sont citées tout au long de ce post.\nIntroduction J’ai longtemps été le type de personne à utiliser Instagram au moins 3h par jour sur mon iPhone.\nPour contacter mes amis, j’utilisais Snapchat et Whatsapp me servait à rester en contact avec ma famille.\nCe train de vie a été modifié après m’être intéressé aux révélations d’Edward Snowden sur l’espionnage de masse.\nJ’ai soudainement pris conscience de ce qu’était la Data mais aussi - et surtout - la metadata et ce à quoi elle peut servir.\n💡 La metadata est par définition ce qui entoure la data.\nDans le cas d’une application de messagerie instantannée, la metadata se matérialise par l’heure, la localisation, l’appareil utilisé pour communiquer… là où la data est le message que l’on envoie\nIl peut s’avérer très compliqué de trouver comment protéger sa vie privée, surtout lorsque l’on est extérieur au monde de l’Informatique.\nJ’ai donc pris le choix de répertorier dans ce post les meilleurs outils et alternatives que je connais et que j’utilise au quotidien (sur mon Android 📱 et mes PC 💻).\nEn revanche, je tiens à préciser que je ne suis pas informé des alternatives qui existent pour iPhone étant donné que je suis revenu sur Android 😕.\nJ’insiste sur le fait que les solutions proposées ne sont pas censées ternir votre expérience utilisateur, à vous de trouver le juste milieu entre vie privée, sécurité et fonctionnalités\n🥷 Android Android tel que nous le connaissons est distribué par Google, le boss ultime de la collecte de data abusive.\nComment faire pour utiliser mon smartphone sans que Google soit informé de chacun de mes faits et gestes ? 🤔\nLa réponse est simple, il faut le dégoogliser !\nEt pourtant, c’est loin d’être facile à faire pour un débutant.\nSi l’on s’y prend mal, il est possible de brick son appareil (le rendre totalement inutilisable).\nDégoogliser son smartphone consiste à enlever l’OS Android propriétaire (stock) pour le remplacer avec une version modifiée (ROM) qui ne contient pas les services Google.\nLes services Google récupèrent une quantité astronomique de data, il y a beaucoup à gagner à s’en séparer, tant pour la vie privée que pour des questions de performance !\nPour rester compatible avec les applications Android, ces ROM utilisent MicroG : une implémentation des librairies Google qui sert de remplacement aux services Google.\nEn gros, MicroG vous permet d’utiliser votre smartphone normalement sans avoir besoin que Google sache ce que vous avez mangé à midi !\nJe ne pourrai pas expliquer la marche à suivre pour installer une ROM équipée de MicroG ici étant donné que la marche à suivre diffère selon votre appareil.\nJe vais donc me contenter de laisser le nom de quelques OS réputés, vous n’aurez qu’à approfondir vos recherches pour l’installer !\nIodé (ce que j’utilise sur mon S9 : c’est francais et c’est plug and play !) LineageOS for MicroG CalyxOS ProtonAOSP GrapheneOS (si vous pensez que la DGSI en a après vous) Au delà de la vie privée, se passer des services Google permet de gagner en autonomie sur la batterie et obtenir de meilleures performances sur votre smartphone !\nC’est comme installer Linux sur un PC.\n🥷 Windows Au même titre qu’Android, Windows est un système d’exploitation qui se nourrit de vos données d’utilisation.\nLes gens ayant déjà de l’investigation numérique en conviendront, Windows garde trace de tout !\nMettre des applications qui respectent notre vie privée sur Windows c’est comme essayer dire qu’on met l’écologie au centre de ses préoccupations mais qu’on prend l’avion pour aller voter : c’est pas super utile 😥.\nLa première solution serait de quitter Windows pour Linux mais j’ai bien conscience que cela n’est pas possible pour tous.\nWindows 10 AME C’est pourquoi Windows 10 AME a vu le jour !\nC’est rien de plus que Windows 10 sans les spyware de Microsoft.\nJ’insiste sur le fait qu’ils n’ont pas été désactivé, ils sont supprimés de l’OS et ne pourront pas être activés à nouveau.\nNéanmoins, les manipulations à faire pour installer l’OS ne sont pas à la portée d’un individu lambda.\nSi vous avez besoin d’utiliser Windows mais que vous ne voulez pas vous sentir espionné, AME vous rendra heureux.\nJe vous invite à regarder cette vidéo de Wolfgang pour en apprendre plus.\n🥷 Messageries Instantannées Nous y sommes totalement dépendants !\nIl n’est pas question ici de n’utiliser que les applications que je vais citer, il est même impossible de se séparer des réseaux sociaux connus si nos amis y sont actifs (j’en ai fait l’expérience).\nIl revient à chaque utilisateur de contrôler l’usage qu’il fait de ses applications.\nNéanmoins, il existe quelques messageries instantannées qui ne collectent que les données utiles à leur fonctionnement voire aucune données !\nSignal C’est le cas de Signal, la meilleure application de messagerie instantannée !\nCela fait 3 ans que je suis son développement et que je l’utilise au quotidien, il n’y a rien à dire.\nL’unique source de revenu de ses créateurs provient des donations et des subventions.\nAutrement dit, Signal ne revend aucune data.\nL’unique donnée stockée est votre numéro de téléphone (et de manière anonyme).\nSignal est open-source et à l’écoute de ses utilisateurs.\nEn terme d’utilisation, Signal équivaut (voire surpasse) iMessage, Messenger et Whatsapp.\nIl existe une application de bureau (Windows, Linux et MacOS) ainsi qu’une application mobile (iOS et Android).\nAussi, l’un des points forts de Signal est qu’il a été accepté par la population au dépit des autres applications de messageries instantannées protectrices de la vie privée.\nCela veut dire que vous ne devriez pas avoir trop de mal à retrouver vos amis dessus (au dépit de Matrix, Briar…).\nA vous d’affronter vos proches pour leur expliquer que Signal est l’application à utiliser pour communiquer 🙃.\nQKSMS Si vous préférez discuter par SMS, je vous conseille QKSMS.\nC’est une application open-source qui remplit son rôle de la plus simple des manières, sans rien collecter !\nDe plus l’interface est très élégante.\n🥷 YouTube L’un des réseaux sociaux que j’utilise le plus.\nEn effet, il a totalement remplacé la télévision pour moi.\nAllons droit au but, j’utilise deux alternatives.\nInvidious Pour PC et Android, vous pouvez utiliser Invidious !\nC’est une alternative open-source qui vous protégera de Google et de tous ses trackers pendant vos moments sur YouTube.\nPour faire court, Invidious est un service qui vous donne accès aux vidéos présentes sur YouTube anonymement (du point de vue de Google).\nL’interface est très minimaliste et de mon côté, je n’ai jamais eu de problème avec cette plateforme.\nVous pouvez l’auto-héberger ou tout simplement utiliser une des nombreuses instances en ligne.\nNewPipe Sur Android, j’utilise NewPipe !\nJe la trouve plus agréable qu’Invidious.\nC’est une application que vous pouvez télécharger depuis F-Droid (on en reparlera plus tard) ou directement depuis leur site web.\nNewPipe n’envoie que les requêtes nécessaires au visionnage d’une vidéo sur YouTube.\nPas de pubs, possibilité de télécharger les vidéos, background player… NewPipe propose des options supplémentaires à YouTube.\nEnfin, il est bon de savoir que NewPipe est aussi compatible avec SoundCloud !\n🥷 Navigateur Web Certains disent que le navigateur web est le système d’exploitation moderne.\nEn effet, les possibilités qu’il offre sont sans limites et en perpetuelle évolution.\nComment surfer tout en protégeant ses données privées ? 🏄\nJe tiens avant tout à citer PrivacyTests.org qui est un comparatif de tous les navigateurs.\nBrave Je conseille Brave à toute personne qui veut un logiciel facile à installer et plug and play.\nC’est un très bon navigateur qui remplit son rôle de protection de la vie privée.\nCertains lui reprocheront le fait d’être basé sur Chrome (qui est développé par Google).\nFirefox (avec addons) Firefox avec des addons peut s’avérer être plus sécurisé que Brave dans beaucoup de cas.\nAvant toute chose, il n’est pas basé sur Chrome.\nDe plus, il est possible de le modder beaucoup plus facilement.\nLes addons que j’utilise sont les suivants :\nuBlock Origin Privacy Badger HTTPS Everywhere NoScript Aussi, Firefox embarque la possibilité de faire des containers afin d’isoler les données de navigation.\nJ’ai donc crée plusieurs conteneurs afin que les sites web que je visite ne communiquent pas entre eux !\nLibre Wolf Libre Wolf est un fork (version modifiée) de Firefox qui se focalise sur la protection de la vie privée et la sécurité.\nC’est à ce jour le navigateur le plus intéressant pour se protéger.\nIl embarque plusieurs addons par défaut et quelques modifications de Firefox.\nTor Browser Bien entendu, on ne peut pas passer à côté de Tor.\nNéanmoins, je ne recommande pas ce navigateur pour un usage quotidien.\nTor est adapté lorsque vous voulez faire des recherches spécifiques dans “l’anonymat” 👀.\nIodé Browser Sur Android, je vous conseille Iodé Browser (le navigateur inclus dans l’OS Iodé par défaut).\nVous pourrez le télécharger depuis F-Droid (on en parle plus tard).\nC’est une version modifiée de Firefox avec la télémétrie désactivée.\n🥷 Moteur de recherche Le moteur de recherche est notre meilleur ami sur Internet.\nBien qu’il soit intrusif, il est indéniable que Google est très puissant et qu’il est très compliqué de s’en passer.\nStartpage Laissez moi donc vous présenter Startpage.\nFace aux nouveaux DuckDuckGo, Qwant et Brave Search, Startpage n’a rien à envier.\nEn effet, Startpage retourne directement les résultats de Google !\nMais comment ? Startpage possède un vieux contrat qui lui permet d’utiliser les résultats de Google sans avoir à leur remettre de données en contre partie.\nDe plus, le moteur de recherche est protégé par la loi européenne et est donc invulnérable aux américains !\n🥷 Clavier (Android) Cela peut paraître fou de prime abord, mais sur Android votre clavier est un parfait espion !\nIl peut écouter toutes vos recherches, vos messages etc.\nOpenBoard OpenBoard est un clavier 100% FOSS (Free and Open-Source Software) qui se veut être respectueux de la vie privée.\nIl embarque les fonctionnalités d’un clavier basique comme le spell-checking et la correction automatiques.\nOpenBoard propose aussi de forcer le mode incognito qui désactive l’apprentissage de nouveaux mots dans le dictionnaire et l’historique du presse-papier.\nIl est disponible sur la Play Store et sur F-Droid.\nAnySoftKeyboard AnySoftKeyboard, au même titre que OpenBoard, est un clavier 100% FOSS.\nIl propose un peu plus de fonctionnalités mais reste très proche d’OpenBoard.\nJe n’ai pas de préférence entre les deux.\n🥷 Store (Android) Est-il possible de récupérer ses applications sans en informer Google et depuis des sources sécurisées ?\nAurora Store Oui, la solution est Aurora Store !\nCe store alternatif vous permettra d’accéder au Play Store de manière anonyme.\nEn revanche, il y a quelques manipulations à faire si vous souhaitez télécharger une application payante (étant donné que cela demande une authentification sur les serveurs de Google).\nL’interface est très travaillée et je n’ai jamais éprouvé le moindre problème après plus de 3 ans d’utilisation !\nDe plus, Aurora Store vous informe de la nature et du type des trackers contenus dans les applications.\nF-Droid Le store qu’il faut absolument posséder sur son smartphone est F-Droid !\nIl ouvre la porte vers énormément (la quasi totalité) d’applications FOSS (Free and Open-Source Software).\nAussi, si vous aimez bidouiller, vous y trouverez beaucoup d’outils qui n’ont pas d’équivalent sur Aurora Store / Play Store.\nEnfin, F-Droid est incontournable vous voulez approfondir vos recherches d’applications respectueuses de votre vie privée.\n🥷 Photo L’appareil photo inclus par défaut dans Android est (comme tout le reste) plein de trackers.\nC’est l’une des applications qui m’a été le plus difficile à remplacer.\nTrouver une application qui remplit aussi bien son rôle d’appareil photo que celle de Google n’a pas été simple…\nSecure Camera Secure Camera est une version modifiée de CameraX développée par les créateurs de GrapheneOS.\nL’application est très ergonomique, je ne lui ai trouvé que très peu de points négatifs par rapport à l’application de Google.\nLa qualité des images est très bonne mais ne propose pas (pour l’instant) de filmer en 60fps.\n🥷 Réseaux Sociaux Je vous vois venir ; oui, les réseaux sociaux sont tous intrusifs.\nComme dit plus tôt, l’idée n’est pas de s’isoler dans une caverne pour affronter les GAFAM.\nIci, je vais juste vous montrer quelques applications Android que j’ai découvert qui me permettent de consulter mon fil d’actualité sans profiter des ✨trackers✨.\nSlimSocial SlimSocial n’est rien de plus qu’un navigateur embarqué qui ne demande aucune autorisation et bloque les requêtes inutiles.\nIl existe deux variantes de SlimSocial, une pour FaceBook et une pour Twitter.\nJ’utilise SlimSocial pour naviguer sur Twitter sans passer par l’application de base 🙂.\nCes applications sont disponibles sur F-Droid.\nSlide Slide est la même chose que SlimSocial mais pour Reddit.\nLa seule différence ici est que Slide n’est pas qu’un simple navigateur, il reproduit directement l’interface de Reddit.\nAi-je besoin d’en dire plus ?\n🥷 Outils Ici, je vais répértorier quelques outils que j’utilise, toujours dans une optique de protection de la vie privée.\nIodé Iodé est une application tirée de la ROM IodéOS dont j’ai parlé dans la première partie dédiée à Android.\nSon rôle est de monitorer en temps réel les flux et bloquer les indésirables.\nElle permet de voir plusieurs statistiques comme les pays vers lesquels sont envoyés les données, les entreprises qui collectent vos données etc.\nSans grande surprise, les Etats-Unis arrivent loin devant.\nTrackerControl Avant d’utiliser Iodé, j’avais TrackerControl.\nSon principe est le même donc je n’ai pas besoin d’en dire plus.\nCette application est disponible sur F-Droid.\nLe mot de la fin Devoir en arriver là pour protéger sa vie privée est bien dommage…\nEn tant qu’utilisateur, cela demande beaucoup de temps de trouver les meilleures alternatives aux applications auxquelles nous sommes habitués.\nJ’ai écrit cet article avec l’intention d’ouvrir la voie à ceux qui veulent faire attention à leur hygiène numérique sans trop faire de recherches.\nJe vous invite donc à partager cet article et me faire part de vos avis / suggestions.\nJ’ai très probablement laissé de côté beaucoup d’alternatives qui ont leur place ici.\nQuoi qu’il en soit, en tant que citoyen de l’Union Européenne, nous avons la chance de profiter du RGPD qui est la réelle première avancée en matière de protection de la vie privée.\nQuelques pistes pour approfondir vos recherches Wolfgang’s Channel TheHatedOne Rob Braxman Reddit r/privacy XDA Developers ",
+  "wordCount" : "2487",
+  "inLanguage": "en",
+  "datePublished": "2022-07-26T18:00:28+02:00",
+  "dateModified": "2022-07-26T18:00:28+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://talebyanis.github.io/posts/privacy101/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏠",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://talebyanis.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://talebyanis.github.io/" accesskey="h" title="🏠 (Alt + H)">🏠</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Give me back my Privacy 🥷
+    </h1>
+    <div class="post-meta"><span title='2022-07-26 18:00:28 +0200 CEST'>July 26, 2022</span>&nbsp;·&nbsp;12 min
+
+</div>
+  </header> 
+  <div class="post-content"><p><img loading="lazy" src="/posts/privacy101/privacy_meme2.png" alt="&amp;ldquo;privacy meme&amp;rdquo;"  />
+</p>
+<h2 id="préambule">Préambule<a hidden class="anchor" aria-hidden="true" href="#préambule">#</a></h2>
+<p>Je n&rsquo;ai pas trouvé énormément de guides en destinés au grand public portant sur la protection de la vie privée.</p>
+<p>Ce post est donc exceptionnellement écrit en francais.</p>
+<p>Aussi, je tiens à insister sur le fait que je ne porte aucun jugement de valeur aux personnes qui ne sont pas intéressées par la protection de leur vie privée.</p>
+<p>L&rsquo;objet de ce post n&rsquo;est pas d&rsquo;expliquer pourquoi se protéger mais comment le faire.</p>
+<p>Enfin, ce post est voué à évoluer au fur et à mesure de mes découvertes et de vos propositions.</p>
+<p><em>Pour aller plus loin, je vous invite à vous référer aux sources qui sont citées tout au long de ce post.</em></p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>J&rsquo;ai longtemps été le type de personne à utiliser Instagram au moins 3h par jour sur mon iPhone.</p>
+<p>Pour contacter mes amis, j&rsquo;utilisais Snapchat et Whatsapp me servait à rester en contact avec ma famille.</p>
+<p>Ce train de vie a été modifié après m&rsquo;être intéressé aux révélations d&rsquo;<a href="https://fr.wikipedia.org/wiki/Edward_Snowden">Edward Snowden</a> sur l&rsquo;espionnage de masse.</p>
+<p>J&rsquo;ai soudainement pris conscience de ce qu&rsquo;était la Data mais aussi - et surtout - la metadata et ce à quoi elle peut servir.</p>
+<blockquote>
+<p>💡 La metadata est par définition ce qui entoure la data.<br>
+Dans le cas d&rsquo;une application de messagerie instantannée, la metadata se matérialise par l&rsquo;heure, la localisation, l&rsquo;appareil utilisé pour communiquer&hellip; là où la data est le message que l&rsquo;on envoie</p>
+</blockquote>
+<p>Il peut s&rsquo;avérer très compliqué de trouver comment protéger sa vie privée, surtout lorsque l&rsquo;on est extérieur au monde de l&rsquo;Informatique.</p>
+<p>J&rsquo;ai donc pris le choix de répertorier dans ce post les meilleurs outils et alternatives que je connais et que j&rsquo;utilise au quotidien (sur mon Android 📱 et mes PC 💻).</p>
+<p>En revanche, je tiens à préciser que je ne suis pas informé des alternatives qui existent pour iPhone étant donné que je suis revenu sur Android 😕.</p>
+<p><strong>J&rsquo;insiste sur le fait que les solutions proposées ne sont pas censées ternir votre expérience utilisateur, à vous de trouver le juste milieu entre vie privée, sécurité et fonctionnalités</strong></p>
+<p><img loading="lazy" src="/posts/privacy101/privacy_meme2.jpg" alt="&amp;ldquo;privacy meme 2&amp;rdquo;"  />
+</p>
+<h2 id="-android">🥷 Android<a hidden class="anchor" aria-hidden="true" href="#-android">#</a></h2>
+<p>Android tel que nous le connaissons est distribué par Google, le boss ultime de la collecte de data abusive.</p>
+<p>Comment faire pour utiliser mon smartphone sans que Google soit informé de chacun de mes faits et gestes ? 🤔</p>
+<p>La réponse est simple, il faut le dégoogliser !</p>
+<p>Et pourtant, c&rsquo;est loin d&rsquo;être facile à faire pour un débutant.</p>
+<p>Si l&rsquo;on s&rsquo;y prend mal, il est possible de brick son appareil (le rendre totalement inutilisable).</p>
+<p>Dégoogliser son smartphone consiste à enlever l&rsquo;OS Android propriétaire (stock) pour le remplacer avec une version modifiée (ROM) qui ne contient pas les services Google.</p>
+<p>Les services Google récupèrent une quantité astronomique de data, il y a beaucoup à gagner à s&rsquo;en séparer, tant pour la vie privée que pour des questions de performance !</p>
+<p>Pour rester compatible avec les applications Android, ces ROM utilisent <a href="https://microg.org/">MicroG</a> : une implémentation des librairies Google qui sert de remplacement aux services Google.</p>
+<p>En gros, MicroG vous permet d&rsquo;utiliser votre smartphone normalement sans avoir besoin que Google sache ce que vous avez mangé à midi !</p>
+<p>Je ne pourrai pas expliquer la marche à suivre pour installer une ROM équipée de MicroG ici étant donné que la marche à suivre diffère selon votre appareil.</p>
+<p>Je vais donc me contenter de laisser le nom de quelques OS réputés, vous n&rsquo;aurez qu&rsquo;à approfondir vos recherches pour l&rsquo;installer !</p>
+<ul>
+<li><a href="https://iode.tech">Iodé</a> (ce que j&rsquo;utilise sur mon S9 : c&rsquo;est francais et c&rsquo;est plug and play !)</li>
+<li><a href="https://lineage.microg.org/">LineageOS for MicroG</a></li>
+<li><a href="https://calyxos.org/">CalyxOS</a></li>
+<li><a href="https://protonaosp.org/">ProtonAOSP</a></li>
+<li><a href="https://grapheneos.org/">GrapheneOS</a> (si vous pensez que la DGSI en a après vous)</li>
+</ul>
+<p>Au delà de la vie privée, se passer des services Google permet de gagner en autonomie sur la batterie et obtenir de meilleures performances sur votre smartphone !</p>
+<p>C&rsquo;est comme installer Linux sur un PC.</p>
+<p><img loading="lazy" src="/posts/privacy101/android12.jpg" alt="&amp;ldquo;Android12&amp;rdquo;"  />
+</p>
+<h2 id="-windows">🥷 Windows<a hidden class="anchor" aria-hidden="true" href="#-windows">#</a></h2>
+<p>Au même titre qu&rsquo;Android, Windows est un système d&rsquo;exploitation qui se nourrit de vos données d&rsquo;utilisation.</p>
+<p>Les gens ayant déjà de l&rsquo;investigation numérique en conviendront, Windows garde trace de tout !</p>
+<p>Mettre des applications qui respectent notre vie privée sur Windows c&rsquo;est comme essayer dire qu&rsquo;on met l&rsquo;écologie au centre de ses préoccupations mais qu&rsquo;on prend l&rsquo;avion pour aller voter : c&rsquo;est pas super utile 😥.</p>
+<p>La première solution serait de quitter Windows pour <a href="https://archlinux.org/">Linux</a> mais j&rsquo;ai bien conscience que cela n&rsquo;est pas possible pour tous.</p>
+<h3 id="windows-10-ame">Windows 10 AME<a hidden class="anchor" aria-hidden="true" href="#windows-10-ame">#</a></h3>
+<p>C&rsquo;est pourquoi <a href="https://ameliorated.info/">Windows 10 AME</a> a vu le jour !</p>
+<p>C&rsquo;est rien de plus que Windows 10 <strong>sans</strong> les spyware de Microsoft.</p>
+<p>J&rsquo;insiste sur le fait qu&rsquo;ils n&rsquo;ont pas été désactivé, ils sont supprimés de l&rsquo;OS et ne pourront pas être activés à nouveau.</p>
+<p>Néanmoins, les manipulations à faire pour installer l&rsquo;OS ne sont pas à la portée d&rsquo;un individu lambda.</p>
+<p>Si vous avez besoin d&rsquo;utiliser Windows mais que vous ne voulez pas vous sentir espionné, AME vous rendra heureux.</p>
+<p>Je vous invite à regarder <a href="https://www.youtube.com/watch?v=YTL0i5XzS7k">cette vidéo</a> de Wolfgang pour en apprendre plus.</p>
+<h2 id="-messageries-instantannées">🥷 Messageries Instantannées<a hidden class="anchor" aria-hidden="true" href="#-messageries-instantannées">#</a></h2>
+<p>Nous y sommes totalement dépendants !</p>
+<p>Il n&rsquo;est pas question ici de n&rsquo;utiliser que les applications que je vais citer, il est même impossible de se séparer des réseaux sociaux connus si nos amis y sont actifs (j&rsquo;en ai fait l&rsquo;expérience).</p>
+<p>Il revient à chaque utilisateur de contrôler l&rsquo;usage qu&rsquo;il fait de ses applications.</p>
+<p>Néanmoins, il existe quelques messageries instantannées qui ne collectent que les données utiles à leur fonctionnement voire aucune données !</p>
+<h3 id="signal">Signal<a hidden class="anchor" aria-hidden="true" href="#signal">#</a></h3>
+<p>C&rsquo;est le cas de <a href="https://signal.org/en/">Signal</a>, la meilleure application de messagerie instantannée !</p>
+<p>Cela fait 3 ans que je suis son développement et que je l&rsquo;utilise au quotidien, il n&rsquo;y a rien à dire.</p>
+<p>L&rsquo;unique source de revenu de ses créateurs provient des donations et des subventions.</p>
+<p>Autrement dit, Signal ne revend aucune data.</p>
+<p>L&rsquo;unique donnée stockée est votre numéro de téléphone (et de manière anonyme).</p>
+<p>Signal est open-source et à l&rsquo;écoute de ses utilisateurs.</p>
+<p>En terme d&rsquo;utilisation, Signal équivaut (voire surpasse) iMessage, Messenger et Whatsapp.</p>
+<p>Il existe une application de bureau (Windows, Linux et MacOS) ainsi qu&rsquo;une application mobile (iOS et Android).</p>
+<p>Aussi, l&rsquo;un des points forts de Signal est qu&rsquo;il a été accepté par la population au dépit des autres applications de messageries instantannées protectrices de la vie privée.</p>
+<p>Cela veut dire que vous ne devriez pas avoir trop de mal à retrouver vos amis dessus (au dépit de <a href="https://matrix.org/">Matrix</a>, <a href="https://briarproject.org/">Briar</a>&hellip;).</p>
+<p>A vous d&rsquo;affronter vos proches pour leur expliquer que Signal est l&rsquo;application à utiliser pour communiquer 🙃.</p>
+<p><img loading="lazy" src="/posts/privacy101/signal.jpg" alt="&amp;ldquo;Signal&amp;rdquo;"  />
+</p>
+<h3 id="qksms">QKSMS<a hidden class="anchor" aria-hidden="true" href="#qksms">#</a></h3>
+<p>Si vous préférez discuter par SMS, je vous conseille <a href="https://github.com/moezbhatti/qksms">QKSMS</a>.</p>
+<p>C&rsquo;est une application open-source qui remplit son rôle de la plus simple des manières, sans rien collecter !</p>
+<p>De plus l&rsquo;interface est très élégante.</p>
+<p><img loading="lazy" src="/posts/privacy101/qksms.jpg" alt="&amp;ldquo;QKSMS&amp;rdquo;"  />
+</p>
+<h2 id="-youtube">🥷 YouTube<a hidden class="anchor" aria-hidden="true" href="#-youtube">#</a></h2>
+<p>L&rsquo;un des réseaux sociaux que j&rsquo;utilise le plus.</p>
+<p>En effet, il a totalement remplacé la télévision pour moi.</p>
+<p>Allons droit au but, j&rsquo;utilise deux alternatives.</p>
+<h3 id="invidious">Invidious<a hidden class="anchor" aria-hidden="true" href="#invidious">#</a></h3>
+<p>Pour PC et Android, vous pouvez utiliser <a href="https://invidious.io/">Invidious</a> !</p>
+<p>C&rsquo;est une alternative open-source qui vous protégera de Google et de tous ses trackers pendant vos moments sur YouTube.</p>
+<p>Pour faire court, Invidious est un service qui vous donne accès aux vidéos présentes sur YouTube anonymement (du point de vue de Google).</p>
+<p>L&rsquo;interface est très minimaliste et de mon côté, je n&rsquo;ai jamais eu de problème avec cette plateforme.</p>
+<p>Vous pouvez l&rsquo;auto-héberger ou tout simplement utiliser une des nombreuses instances en ligne.</p>
+<p><img loading="lazy" src="/posts/privacy101/invidious.png" alt="Invidious"  />
+</p>
+<h3 id="newpipe">NewPipe<a hidden class="anchor" aria-hidden="true" href="#newpipe">#</a></h3>
+<p>Sur Android, j&rsquo;utilise <a href="%22https://newpipe.net/%22">NewPipe</a> !</p>
+<p>Je la trouve plus agréable qu&rsquo;Invidious.</p>
+<p>C&rsquo;est une application que vous pouvez télécharger depuis F-Droid (on en reparlera plus tard) ou directement depuis leur site web.</p>
+<p>NewPipe n&rsquo;envoie que les requêtes nécessaires au visionnage d&rsquo;une vidéo sur YouTube.</p>
+<p>Pas de pubs, possibilité de télécharger les vidéos, background player&hellip; NewPipe propose des options supplémentaires à YouTube.</p>
+<p>Enfin, il est bon de savoir que NewPipe est aussi compatible avec SoundCloud !</p>
+<p><img loading="lazy" src="/posts/privacy101/newpipe.png" alt="NewPipe"  />
+</p>
+<h2 id="-navigateur-web">🥷 Navigateur Web<a hidden class="anchor" aria-hidden="true" href="#-navigateur-web">#</a></h2>
+<p>Certains disent que le navigateur web est le système d&rsquo;exploitation moderne.</p>
+<p>En effet, les possibilités qu&rsquo;il offre sont sans limites et en perpetuelle évolution.</p>
+<p>Comment surfer tout en protégeant ses données privées ? 🏄</p>
+<p>Je tiens avant tout à citer <a href="https://privacytests.org/">PrivacyTests.org</a> qui est un comparatif de tous les navigateurs.</p>
+<h3 id="brave">Brave<a hidden class="anchor" aria-hidden="true" href="#brave">#</a></h3>
+<p>Je conseille <a href="https://brave.com/">Brave</a> à toute personne qui veut un logiciel facile à installer et plug and play.</p>
+<p>C&rsquo;est un très bon navigateur qui remplit son rôle de protection de la vie privée.</p>
+<p>Certains lui reprocheront le fait d&rsquo;être basé sur Chrome (qui est développé par Google).</p>
+<p><img loading="lazy" src="/posts/privacy101/brave.png" alt="Brave"  />
+</p>
+<h3 id="firefox-avec-addons">Firefox (avec addons)<a hidden class="anchor" aria-hidden="true" href="#firefox-avec-addons">#</a></h3>
+<p>Firefox avec des addons peut s&rsquo;avérer être plus sécurisé que Brave dans beaucoup de cas.</p>
+<p>Avant toute chose, il n&rsquo;est pas basé sur Chrome.</p>
+<p>De plus, il est possible de le modder beaucoup plus facilement.</p>
+<p>Les addons que j&rsquo;utilise sont les suivants :</p>
+<ul>
+<li>uBlock Origin</li>
+<li>Privacy Badger</li>
+<li>HTTPS Everywhere</li>
+<li>NoScript</li>
+</ul>
+<p>Aussi, Firefox embarque la possibilité de faire des containers afin d&rsquo;isoler les données de navigation.</p>
+<p>J&rsquo;ai donc crée plusieurs conteneurs afin que les sites web que je visite ne communiquent pas entre eux !</p>
+<p><img loading="lazy" src="/posts/privacy101/firefox.png" alt="Firefox"  />
+</p>
+<h3 id="libre-wolf">Libre Wolf<a hidden class="anchor" aria-hidden="true" href="#libre-wolf">#</a></h3>
+<p><a href="https://librewolf.net/">Libre Wolf</a> est un fork (version modifiée) de Firefox qui se focalise sur la protection de la vie privée et la sécurité.</p>
+<p>C&rsquo;est à ce jour le navigateur le plus intéressant pour se protéger.</p>
+<p>Il embarque plusieurs addons par défaut et quelques modifications de Firefox.</p>
+<p><img loading="lazy" src="/posts/privacy101/librewolf.jpg" alt="Libre Wolf"  />
+</p>
+<h3 id="tor-browser">Tor Browser<a hidden class="anchor" aria-hidden="true" href="#tor-browser">#</a></h3>
+<p>Bien entendu, on ne peut pas passer à côté de <a href="https://www.torproject.org/">Tor</a>.</p>
+<p>Néanmoins, je ne recommande pas ce navigateur pour un usage quotidien.</p>
+<p>Tor est adapté lorsque vous voulez faire des recherches spécifiques dans &ldquo;l&rsquo;anonymat&rdquo; 👀.</p>
+<p><img loading="lazy" src="/posts/privacy101/tor.png" alt="Tor"  />
+</p>
+<h3 id="iodé-browser">Iodé Browser<a hidden class="anchor" aria-hidden="true" href="#iodé-browser">#</a></h3>
+<p>Sur Android, je vous conseille Iodé Browser (le navigateur inclus dans l&rsquo;OS Iodé par défaut).</p>
+<p>Vous pourrez le télécharger depuis F-Droid (on en parle plus tard).</p>
+<p>C&rsquo;est une version modifiée de Firefox avec la télémétrie désactivée.</p>
+<h2 id="-moteur-de-recherche">🥷 Moteur de recherche<a hidden class="anchor" aria-hidden="true" href="#-moteur-de-recherche">#</a></h2>
+<p>Le moteur de recherche est notre meilleur ami sur Internet.</p>
+<p>Bien qu&rsquo;il soit intrusif, il est indéniable que Google est très puissant et qu&rsquo;il est très compliqué de s&rsquo;en passer.</p>
+<h3 id="startpage">Startpage<a hidden class="anchor" aria-hidden="true" href="#startpage">#</a></h3>
+<p>Laissez moi donc vous présenter <a href="https://startpage.com/">Startpage</a>.</p>
+<p>Face aux nouveaux DuckDuckGo, Qwant et Brave Search, Startpage n&rsquo;a rien à envier.</p>
+<p>En effet, Startpage retourne directement les résultats de Google !</p>
+<p>Mais comment ? Startpage possède un vieux contrat qui lui permet d&rsquo;utiliser les résultats de Google sans avoir à leur remettre de données en contre partie.</p>
+<p>De plus, le moteur de recherche est protégé par la loi européenne et est donc invulnérable aux américains !</p>
+<p><img loading="lazy" src="/posts/privacy101/startpage.png" alt="Startpage"  />
+</p>
+<h2 id="-clavier-android">🥷 Clavier (Android)<a hidden class="anchor" aria-hidden="true" href="#-clavier-android">#</a></h2>
+<p>Cela peut paraître fou de prime abord, mais sur Android votre clavier est un parfait espion !</p>
+<p>Il peut écouter toutes vos recherches, vos messages etc.</p>
+<h3 id="openboard">OpenBoard<a hidden class="anchor" aria-hidden="true" href="#openboard">#</a></h3>
+<p><a href="https://github.com/openboard-team/openboard">OpenBoard</a> est un clavier 100% FOSS (Free and Open-Source Software) qui se veut être respectueux de la vie privée.</p>
+<p>Il embarque les fonctionnalités d&rsquo;un clavier basique comme le spell-checking et la correction automatiques.</p>
+<p>OpenBoard propose aussi de forcer le mode incognito qui désactive l&rsquo;apprentissage de nouveaux mots dans le dictionnaire et l&rsquo;historique du presse-papier.</p>
+<p>Il est disponible sur la Play Store et sur F-Droid.</p>
+<p><img loading="lazy" src="/posts/privacy101/openboard.png" alt="OpenBoard"  />
+</p>
+<h3 id="anysoftkeyboard">AnySoftKeyboard<a hidden class="anchor" aria-hidden="true" href="#anysoftkeyboard">#</a></h3>
+<p><a href="https://anysoftkeyboard.github.io/">AnySoftKeyboard</a>, au même titre que OpenBoard, est un clavier 100% FOSS.</p>
+<p>Il propose un peu plus de fonctionnalités mais reste très proche d&rsquo;OpenBoard.</p>
+<p>Je n&rsquo;ai pas de préférence entre les deux.</p>
+<p><img loading="lazy" src="/posts/privacy101/anysoftkeyboard.png" alt="AnySoftKeyboard"  />
+</p>
+<h2 id="-store-android">🥷 Store (Android)<a hidden class="anchor" aria-hidden="true" href="#-store-android">#</a></h2>
+<p>Est-il possible de récupérer ses applications sans en informer Google et depuis des sources sécurisées ?</p>
+<h3 id="aurora-store">Aurora Store<a hidden class="anchor" aria-hidden="true" href="#aurora-store">#</a></h3>
+<p>Oui, la solution est <a href="https://auroraoss.com/">Aurora Store</a> !</p>
+<p>Ce store alternatif vous permettra d&rsquo;accéder au Play Store de manière anonyme.</p>
+<p>En revanche, il y a quelques manipulations à faire si vous souhaitez télécharger une application payante (étant donné que cela demande une authentification sur les serveurs de Google).</p>
+<p>L&rsquo;interface est très travaillée et je n&rsquo;ai jamais éprouvé le moindre problème après plus de 3 ans d&rsquo;utilisation !</p>
+<p>De plus, Aurora Store vous informe de la nature et du type des trackers contenus dans les applications.</p>
+<p><img loading="lazy" src="/posts/privacy101/aurora.png" alt="Aurora Store"  />
+</p>
+<h3 id="f-droid">F-Droid<a hidden class="anchor" aria-hidden="true" href="#f-droid">#</a></h3>
+<p>Le store qu&rsquo;il faut absolument posséder sur son smartphone est <a href="https://f-droid.org/">F-Droid</a> !</p>
+<p>Il ouvre la porte vers énormément (la quasi totalité) d&rsquo;applications FOSS (Free and Open-Source Software).</p>
+<p>Aussi, si vous aimez bidouiller, vous y trouverez beaucoup d&rsquo;outils qui n&rsquo;ont pas d&rsquo;équivalent sur Aurora Store / Play Store.</p>
+<p>Enfin, F-Droid est incontournable vous voulez approfondir vos recherches d&rsquo;applications respectueuses de votre vie privée.</p>
+<p><img loading="lazy" src="/posts/privacy101/fdroid.png" alt="fdroid"  />
+</p>
+<h2 id="-photo">🥷 Photo<a hidden class="anchor" aria-hidden="true" href="#-photo">#</a></h2>
+<p>L&rsquo;appareil photo inclus par défaut dans Android est (comme tout le reste) plein de trackers.</p>
+<p>C&rsquo;est l&rsquo;une des applications qui m&rsquo;a été le plus difficile à remplacer.</p>
+<p>Trouver une application qui remplit aussi bien son rôle d&rsquo;appareil photo que celle de Google n&rsquo;a pas été simple&hellip;</p>
+<h3 id="secure-camera">Secure Camera<a hidden class="anchor" aria-hidden="true" href="#secure-camera">#</a></h3>
+<p><a href="https://github.com/GrapheneOS/Camera">Secure Camera</a> est une version modifiée de CameraX développée par les créateurs de <a href="https://grapheneos.org/">GrapheneOS</a>.</p>
+<p>L&rsquo;application est très ergonomique, je ne lui ai trouvé que très peu de points négatifs par rapport à l&rsquo;application de Google.</p>
+<p>La qualité des images est très bonne mais ne propose pas (pour l&rsquo;instant) de filmer en 60fps.</p>
+<p><img loading="lazy" src="/posts/privacy101/securecamera.png" alt="Secure Camera"  />
+</p>
+<h2 id="-réseaux-sociaux">🥷 Réseaux Sociaux<a hidden class="anchor" aria-hidden="true" href="#-réseaux-sociaux">#</a></h2>
+<p>Je vous vois venir ; oui, les réseaux sociaux sont tous intrusifs.</p>
+<p>Comme dit plus tôt, l&rsquo;idée n&rsquo;est pas de s&rsquo;isoler dans une caverne pour affronter les GAFAM.</p>
+<p>Ici, je vais juste vous montrer quelques applications Android que j&rsquo;ai découvert qui me permettent de consulter mon fil d&rsquo;actualité sans profiter des ✨trackers✨.</p>
+<h3 id="slimsocial">SlimSocial<a hidden class="anchor" aria-hidden="true" href="#slimsocial">#</a></h3>
+<p><a href="https://github.com/rignaneseleo/SlimSocial-for-Facebook">SlimSocial</a> n&rsquo;est rien de plus qu&rsquo;un navigateur embarqué qui ne demande aucune autorisation et bloque les requêtes inutiles.</p>
+<p>Il existe deux variantes de SlimSocial, une pour FaceBook et une pour Twitter.</p>
+<p>J&rsquo;utilise SlimSocial pour naviguer sur Twitter sans passer par l&rsquo;application de base 🙂.</p>
+<p>Ces applications sont disponibles sur F-Droid.</p>
+<h3 id="slide">Slide<a hidden class="anchor" aria-hidden="true" href="#slide">#</a></h3>
+<p><a href="https://github.com/Haptic-Apps/Slide">Slide</a> est la même chose que SlimSocial mais pour Reddit.</p>
+<p>La seule différence ici est que Slide n&rsquo;est pas qu&rsquo;un simple navigateur, il reproduit directement l&rsquo;interface de Reddit.</p>
+<p>Ai-je besoin d&rsquo;en dire plus ?</p>
+<h2 id="-outils">🥷 Outils<a hidden class="anchor" aria-hidden="true" href="#-outils">#</a></h2>
+<p>Ici, je vais répértorier quelques outils que j&rsquo;utilise, toujours dans une optique de protection de la vie privée.</p>
+<h3 id="iodé">Iodé<a hidden class="anchor" aria-hidden="true" href="#iodé">#</a></h3>
+<p>Iodé est une application tirée de la ROM IodéOS dont j&rsquo;ai parlé dans la première partie dédiée à Android.</p>
+<p>Son rôle est de monitorer en temps réel les flux et bloquer les indésirables.</p>
+<p>Elle permet de voir plusieurs statistiques comme les pays vers lesquels sont envoyés les données, les entreprises qui collectent vos données etc.</p>
+<p><em>Sans grande surprise, les Etats-Unis arrivent loin devant.</em></p>
+<p><img loading="lazy" src="/posts/privacy101/iod%c3%a9app.png" alt="iodeapp"  />
+</p>
+<h3 id="trackercontrol">TrackerControl<a hidden class="anchor" aria-hidden="true" href="#trackercontrol">#</a></h3>
+<p>Avant d&rsquo;utiliser Iodé, j&rsquo;avais <a href="https://trackercontrol.org/">TrackerControl</a>.</p>
+<p>Son principe est le même donc je n&rsquo;ai pas besoin d&rsquo;en dire plus.</p>
+<p>Cette application est disponible sur F-Droid.</p>
+<p><img loading="lazy" src="/posts/privacy101/trackercontrol.png" alt="TrackerControl"  />
+</p>
+<h1 id="le-mot-de-la-fin">Le mot de la fin<a hidden class="anchor" aria-hidden="true" href="#le-mot-de-la-fin">#</a></h1>
+<p>Devoir en arriver là pour protéger sa vie privée est bien dommage&hellip;</p>
+<p>En tant qu&rsquo;utilisateur, cela demande beaucoup de temps de trouver les meilleures alternatives aux applications auxquelles nous sommes habitués.</p>
+<p>J&rsquo;ai écrit cet article avec l&rsquo;intention d&rsquo;ouvrir la voie à ceux qui veulent faire attention à leur hygiène numérique sans trop faire de recherches.</p>
+<p>Je vous invite donc à partager cet article et me faire part de vos avis / suggestions.</p>
+<p>J&rsquo;ai très probablement laissé de côté beaucoup d&rsquo;alternatives qui ont leur place ici.</p>
+<p>Quoi qu&rsquo;il en soit, en tant que citoyen de l&rsquo;Union Européenne, nous avons la chance de profiter du RGPD qui est la réelle première avancée en matière de protection de la vie privée.</p>
+<h2 id="quelques-pistes-pour-approfondir-vos-recherches">Quelques pistes pour approfondir vos recherches<a hidden class="anchor" aria-hidden="true" href="#quelques-pistes-pour-approfondir-vos-recherches">#</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/c/WolfgangsChannel">Wolfgang&rsquo;s Channel</a></li>
+<li><a href="https://www.youtube.com/c/TheHatedOne">TheHatedOne</a></li>
+<li><a href="https://www.youtube.com/c/BraxMe">Rob Braxman</a></li>
+<li><a href="https://www.reddit.com/r/privacy">Reddit r/privacy</a></li>
+<li><a href="https://www.xda-developers.com/">XDA Developers</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://talebyanis.github.io/tags/privacy/">privacy</a></li>
+      <li><a href="http://talebyanis.github.io/tags/ungoogle/">ungoogle</a></li>
+      <li><a href="http://talebyanis.github.io/tags/android/">android</a></li>
+      <li><a href="http://talebyanis.github.io/tags/windows/">windows</a></li>
+      <li><a href="http://talebyanis.github.io/tags/linux/">linux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://talebyanis.github.io/">🏠</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
