@@ -6,7 +6,16 @@
     <description>Recent content on 🏠</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Jul 2023 19:31:01 +0200</lastBuildDate><atom:link href="http://talebyanis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jul 2023 19:30:42 +0200</lastBuildDate><atom:link href="http://talebyanis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Scene : El camino</title>
+      <link>http://talebyanis.github.io/posts/empress/</link>
+      <pubDate>Fri, 28 Jul 2023 19:30:42 +0200</pubDate>
+      
+      <guid>http://talebyanis.github.io/posts/empress/</guid>
+      <description>The incredible story of 0xEMPRESS</description>
+    </item>
+    
     <item>
       <title>Resume</title>
       <link>http://talebyanis.github.io/cv/</link>
@@ -27,15 +36,6 @@ LinkedIn talebyanis@laposte.net Work Experience 👨🏻‍💼 &amp;amp; Educat
       
       <guid>http://talebyanis.github.io/general/whoami/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>NFC Hacking (Mifare Mini) 🛜</title>
-      <link>http://talebyanis.github.io/cybersecurity/nfc-hacking/</link>
-      <pubDate>Wed, 14 Sep 2022 21:06:00 +0200</pubDate>
-      
-      <guid>http://talebyanis.github.io/cybersecurity/nfc-hacking/</guid>
-      <description>How can we hack into a vending machine ?</description>
     </item>
     
     <item>
