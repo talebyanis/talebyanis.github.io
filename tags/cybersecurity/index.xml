@@ -6,7 +6,16 @@
     <description>Recent content in cybersecurity on 🏠</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Sep 2022 21:06:00 +0200</lastBuildDate><atom:link href="http://talebyanis.github.io/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Nov 2023 20:45:42 +0100</lastBuildDate><atom:link href="http://talebyanis.github.io/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dealing with .dmg files when you don&#39;t have an Apple device... 🍏</title>
+      <link>http://talebyanis.github.io/posts/how-to-deal-with-encrypted-dmg-files/</link>
+      <pubDate>Thu, 16 Nov 2023 20:45:42 +0100</pubDate>
+      
+      <guid>http://talebyanis.github.io/posts/how-to-deal-with-encrypted-dmg-files/</guid>
+      <description>How to deal with encrypted DMG files when you don&amp;rsquo;t have a MacBook</description>
+    </item>
+    
     <item>
       <title>NFC Hacking (Mifare Mini) 🛜</title>
       <link>http://talebyanis.github.io/posts/nfc-hacking/</link>

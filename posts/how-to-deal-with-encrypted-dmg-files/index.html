@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Dealing with .dmg files when you don&#39;t have an Apple device... 🍏 | 🏠</title>
+<meta name="keywords" content="cybersecurity, infosec, macos, guide, forensic">
+<meta name="description" content="How to deal with encrypted DMG files when you don&rsquo;t have a MacBook">
+<meta name="author" content="">
+<link rel="canonical" href="http://talebyanis.github.io/posts/how-to-deal-with-encrypted-dmg-files/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://talebyanis.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://talebyanis.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://talebyanis.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://talebyanis.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://talebyanis.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Dealing with .dmg files when you don&#39;t have an Apple device... 🍏" />
+<meta property="og:description" content="How to deal with encrypted DMG files when you don&rsquo;t have a MacBook" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://talebyanis.github.io/posts/how-to-deal-with-encrypted-dmg-files/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-16T20:45:42+01:00" />
+<meta property="article:modified_time" content="2023-11-16T20:45:42+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dealing with .dmg files when you don&#39;t have an Apple device... 🍏"/>
+<meta name="twitter:description" content="How to deal with encrypted DMG files when you don&rsquo;t have a MacBook"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://talebyanis.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Dealing with .dmg files when you don't have an Apple device... 🍏",
+      "item": "http://talebyanis.github.io/posts/how-to-deal-with-encrypted-dmg-files/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dealing with .dmg files when you don't have an Apple device... 🍏",
+  "name": "Dealing with .dmg files when you don\u0027t have an Apple device... 🍏",
+  "description": "How to deal with encrypted DMG files when you don\u0026rsquo;t have a MacBook",
+  "keywords": [
+    "cybersecurity", "infosec", "macos", "guide", "forensic"
+  ],
+  "articleBody": " Introduction Skip my bulls**t\nFor some reasons, i made a .dmg image of a folder on my ✨ MacBook Pro M1 Pro ✨.\nA DMG file is an Apple Disk Image file.\nNothing too complicated : to do so, I used Apple’s Disk Utility tool.\nThe encryption option got my interest and, only for testing purposes, I decided to create a small encrypted image and crack it in order to recover its content like an attacker would do… things didn’t go as I thought.\nIn this post, we will see step-by-step how complicated (not hard, complicated) it is for a non-Apple user to recover the content of an encrypted dmg file\nwhat is shown in this post has been done on MacOS Sonoma 14.0, Windows 11 Parallels and Kali Linux.\nSome knowledge about the DMG file extension and APFS 🤓 DMG is, as I said earlier, is an Apple file extenstion.\nIt is used to distribute and install apps on MacOS.\nThey can contain data, softs, apps, a file system… many things.\nDMG can also be used for compression and reduce space on a disk.\nA MacOS user only need to double-click on a dmg file to open it / mount it as if it was an external drive.\nImportant point, a dmg image can be encrypted with AES 128-bit / 256-bit.\nDisk Utility is a tool provided by Apple on MacOS systems to create and manage dmg files.\nTo finish with this part, I need to say that the dmg extension is associated with HFS+ and APFS.\nThese are file systems used by MacOS, APFS is the newer and was introduced in 2017 with MacOS Sierra.\nFor your knowledge, the main difference between these two FS is that APFS was introduced to optimize performances on SSDs and uses a Copy-on-Write system to contribute to data integrity.\nLet’s create an encrypted dmg image 🔐 In order to illustrate what I want to show in this post, we’ll create an encrypted dmg file together 🎉.\nNothing too fancy :\nOpen Disk Utility Select File \u003e New Image \u003e Image from folder Select a folder with something inside of it, it’s better In encryption, Select 128-bit AES Enter a password (please don’t forget it…) Done, you are now a hacker 🤡 Attack mode 🤺 Now, let’s imagine that, as a skiddy, you intercepted an encrypted dmg file.\nLet’s try to recover its content !\nBecause it would be too simple and that it is the purpose of this post, we will run the attack without using MacOS.\nIndeed, dmg images have been made for MacOS…\nFrom now, we will play as if we had no knowledge on what we have except the extension.\nWhat do we have here ? We’ll start the investigation from Linux.\nRunning the file command will not be useful\nIf you google “dmg on linux” (on Startpage 🤓), you will find that 7-zip is able to uncompress a dmg file… Perfect !\nActually, it’s not that simple.\nWhat I like to do in that case is to put the file in HexEdit\nWe can see that the file starts with the “encrcdsa” sequence, meaning that the file is encrypted.\nAfter some researchs, I found that 7-zip is unable to deal with encrypted dmg files… 😔\nWhat can we do then ? Is it the end for us ? Where skills ?\nLet’s crack it What would we do if we had an encrypted zip file and wanted to crack it ?\nLet’s ask our common friend John The Ripper.\nJohn is able to attack the hash of our dmg’s password.\nFor testing purposes, we will write into a fake wordlist the password we chose to encrypt our dmg image. The idea of this post isn’t to learn how to brute force attack an encrypted file.\nTo do so :\ndmg2john image.dmg \u003e output john --wordlist=wordlist.txt output GG, you are now a hacker ! 🤡\nLet’s (try to) open it Well well well… we now have the password used to encrypt the image but we’re still unable to open it…\nOf course, we could just use MacOS but as a skiddy attacker, we’ll suppose that we don’t have a MacOS device on hand.\nI tried many things before understanding that it won’t be possible to open an encrypted dmg image on Linux… but why ?\nThe reason is pretty simple, APFS still isn’t 100% compatible with Linux.\nThere are some drivers like apfs-fuse but I wasn’t able to make it work with my encrypted dmg and as far as I know, there isn’t any other driver available.\nIndeed, propriertary file systems like APFS depends on reverse engineering.\nTo be honest, I wasn’t able to find anything working on Linux to open my dmg image. It’s kind of frustrating to have the password and not be able to open it !\nFor this reason, I decided to call an old friend… someone I don’t like to stay with except when I need to attack him…\nIf the Linux community didn’t create a stable APFS driver, maybe the Windows community did 😂 (spoiler alert : they did actually).\nI tried different tools, some looked like spywares, some asked for money in order to decrypt my image but… anyway.\nI didn’t find any program able to open my encrypted dmg image 🤦🏻‍♂️.\nI chose to dig into github and I found dmg2img.\nThe idea is to convert the encrypted dmg image into a decrypted .img. Thus, maybe I’ll have some more options to read its content.\nI cloned the repo on Windows but, because life isn’t easy, it didn’t work on my image because I didn’t find any flag to deal with encryption.\nThanksfully, I found another script called DmgWiz which is a dmg2img’s clone with more features and written in Rust.\nI used it on my file and… ENFIN CA FONCTIONNE 🎉 :\nHere is the command I entered in Windows Terminal :\n.\\dmgwiz.exe .\\image.dmg -p extract -o out.img\nLet’s open it Ok ! We now have a decrypted .img file under APFS.\nBefore trying to open it with apfs-fuse again, maybe Windows has something to offer ?\nYES, the only software on Windows that allowed me to open my image is TransMac.\nThe only problem with it is that it runs for 15 days from installation to allow user evaluation.\nConclusion I wrote this post because it is too complicated (not hard, complicated) to deal with an encrypted dmg image on another OS than MacOS.\nJudging by Apple’s philosophy, it actually is a great thing : you need to buy their device to avoid installing a paid third-party software to open an encrypted dmg file.\nI hope you found this post useful, and / or gave you some ideas.\nI think giving an encrypted dmg image in a CTF could be a cool idea :).\nTo sum up To crack and open an encrypted dmg image, I needed to :\nFirst, on Linux (or Windows)\ndmg2john image.dmg \u003e output john --wordlist=wordlist.txt output Then, on Windows\nDownload dmgwiz.exe Run .\\dmgwiz.exe .\\image.dmg -p extract -o out.img in Terminal Open out.img image with TransMac Done ! What we would have done on MacOS :\nCrack it with john Double click on the dmg image and enter the password… ",
+  "wordCount" : "1217",
+  "inLanguage": "en",
+  "datePublished": "2023-11-16T20:45:42+01:00",
+  "dateModified": "2023-11-16T20:45:42+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://talebyanis.github.io/posts/how-to-deal-with-encrypted-dmg-files/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏠",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://talebyanis.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://talebyanis.github.io/" accesskey="h" title="🏠 (Alt + H)">🏠</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Dealing with .dmg files when you don&#39;t have an Apple device... 🍏
+    </h1>
+    <div class="post-meta"><span title='2023-11-16 20:45:42 +0100 CET'>November 16, 2023</span>&nbsp;·&nbsp;6 min
+
+</div>
+  </header> 
+  <div class="post-content"><hr>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p><a href="#to-sum-up">Skip my bulls**t</a></p>
+<p>For some reasons, i made a .dmg image of a folder on my ✨ MacBook Pro M1 Pro ✨.</p>
+<p>A DMG file is an Apple Disk Image file.</p>
+<p>Nothing too complicated : to do so, I used Apple&rsquo;s Disk Utility tool.</p>
+<p>The encryption option got my interest and, only for testing purposes, I decided to create a small encrypted image and crack it
+in order to recover its content like an attacker would do&hellip; things didn&rsquo;t go as I thought.</p>
+<p>In this post, we will see step-by-step how complicated (not hard, <strong>complicated</strong>) it is for a non-Apple user to recover the content of an encrypted dmg file</p>
+<p><em>what is shown in this post has been done on MacOS Sonoma 14.0, Windows 11 Parallels and Kali Linux.</em></p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/meme-intro.png" alt=""  />
+</p>
+<h1 id="some-knowledge-about-the-dmg-file-extension-and-apfs-">Some knowledge about the DMG file extension and APFS 🤓<a hidden class="anchor" aria-hidden="true" href="#some-knowledge-about-the-dmg-file-extension-and-apfs-">#</a></h1>
+<p>DMG is, as I said earlier, is an <strong>Apple file extenstion</strong>.</p>
+<p>It is used to distribute and install apps on MacOS.</p>
+<p><strong>They can contain data, softs, apps, a file system</strong>&hellip; many things.</p>
+<p>DMG can also be used for compression and reduce space on a disk.</p>
+<p>A MacOS user only need to double-click on a dmg file to open it / mount it as if it was an external drive.</p>
+<p>Important point, a dmg image can be encrypted with <strong>AES 128-bit / 256-bit</strong>.</p>
+<p><strong>Disk Utility</strong> is a tool provided by Apple on MacOS systems to create and manage dmg files.</p>
+<p>To finish with this part, I need to say that the dmg extension is associated with <strong>HFS+</strong> and <strong>APFS</strong>.</p>
+<p>These are file systems used by MacOS, APFS is the newer and was introduced in 2017 with MacOS Sierra.</p>
+<p><em>For your knowledge, the main difference between these two FS is that APFS was introduced to optimize performances on SSDs and uses a Copy-on-Write system
+to contribute to data integrity</em>.</p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/dmg-file.png" alt=""  />
+</p>
+<h1 id="lets-create-an-encrypted-dmg-image-">Let&rsquo;s create an encrypted dmg image 🔐<a hidden class="anchor" aria-hidden="true" href="#lets-create-an-encrypted-dmg-image-">#</a></h1>
+<p>In order to illustrate what I want to show in this post, we&rsquo;ll create an encrypted dmg file together 🎉.</p>
+<p>Nothing too fancy :</p>
+<ul>
+<li>Open Disk Utility</li>
+<li>Select File &gt; New Image &gt; Image from folder</li>
+<li>Select a folder with something inside of it, it&rsquo;s better</li>
+<li>In encryption, Select 128-bit AES</li>
+<li>Enter a password (please don&rsquo;t forget it&hellip;)</li>
+<li>Done, you are now a hacker 🤡</li>
+</ul>
+<p><img loading="lazy" src="/posts/encrypted-dmg/disk-utility.png" alt=""  />
+</p>
+<h1 id="attack-mode-">Attack mode 🤺<a hidden class="anchor" aria-hidden="true" href="#attack-mode-">#</a></h1>
+<p>Now, let&rsquo;s imagine that, as a skiddy, you intercepted an encrypted dmg file.</p>
+<p>Let&rsquo;s try to recover its content !</p>
+<p>Because it would be too simple and that it is the purpose of this post, we will run the attack without using MacOS.</p>
+<p>Indeed, dmg images have been made for MacOS&hellip;</p>
+<p><em>From now, we will play as if we had no knowledge on what we have except the extension.</em></p>
+<h2 id="what-do-we-have-here-">What do we have here ?<a hidden class="anchor" aria-hidden="true" href="#what-do-we-have-here-">#</a></h2>
+<p>We&rsquo;ll start the investigation from Linux.</p>
+<p>Running the file command will not be useful</p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/file-kali.png" alt=""  />
+</p>
+<p>If you google &ldquo;dmg on linux&rdquo; (on Startpage 🤓), you will find that 7-zip is able to uncompress a dmg file&hellip; Perfect !</p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/7zip.png" alt=""  />
+</p>
+<p>Actually, it&rsquo;s not that simple.</p>
+<p>What I like to do in that case is to put the file in <a href="https://hexed.it">HexEdit</a></p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/hexedit.png" alt=""  />
+</p>
+<p>We can see that the file starts with the <em>&ldquo;encrcdsa&rdquo;</em> sequence, meaning that the file is encrypted.</p>
+<p>After some researchs, I found that 7-zip is unable to deal with encrypted dmg files&hellip; 😔</p>
+<p>What can we do then ? Is it the end for us ? <em>Where skills ?</em></p>
+<h2 id="lets-crack-it">Let&rsquo;s crack it<a hidden class="anchor" aria-hidden="true" href="#lets-crack-it">#</a></h2>
+<p>What would we do if we had an encrypted zip file and wanted to crack it ?</p>
+<p>Let&rsquo;s ask our common friend <a href="https://github.com/openwall/john"><strong>John The Ripper</strong></a>.</p>
+<p>John is able to attack the hash of our dmg&rsquo;s password.</p>
+<p><em>For testing purposes, we will write into a fake wordlist the password we chose to encrypt our dmg image.
+The idea of this post isn&rsquo;t to learn how to brute force attack an encrypted file.</em></p>
+<p>To do so :</p>
+<ul>
+<li><code>dmg2john image.dmg &gt; output</code></li>
+<li><code>john --wordlist=wordlist.txt output</code></li>
+</ul>
+<p><img loading="lazy" src="/posts/encrypted-dmg/john.png" alt=""  />
+</p>
+<p>GG, you are now a hacker ! 🤡</p>
+<h2 id="lets-try-to-open-it">Let&rsquo;s (try to) open it<a hidden class="anchor" aria-hidden="true" href="#lets-try-to-open-it">#</a></h2>
+<p>Well well well&hellip; we now have the password used to encrypt the image but we&rsquo;re still unable to open it&hellip;</p>
+<p>Of course, we could just use MacOS but as a skiddy attacker, we&rsquo;ll suppose that we don&rsquo;t have a MacOS device on hand.</p>
+<p>I tried many things before understanding that it won&rsquo;t be possible to open an encrypted dmg image on Linux&hellip; but why ?</p>
+<p>The reason is pretty simple, APFS still isn&rsquo;t 100% compatible with Linux.</p>
+<p>There are some drivers like <a href="https://github.com/sgan81/apfs-fuse">apfs-fuse</a> but I wasn&rsquo;t able to make it work with my encrypted dmg and as far as I know, there isn&rsquo;t any other driver available.</p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/apfs-fuse.png" alt=""  />
+</p>
+<p>Indeed, propriertary file systems like APFS depends on reverse engineering.</p>
+<p>To be honest, I wasn&rsquo;t able to find anything working on Linux to open my dmg image. It&rsquo;s kind of frustrating to have the password and not be able to open it !</p>
+<p>For this reason, I decided to call an old friend&hellip; someone I don&rsquo;t like to stay with except when I need to attack him&hellip;</p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/windows-meme.jpeg" alt=""  />
+</p>
+<p>If the Linux community didn&rsquo;t create a stable APFS driver, maybe the Windows community did 😂 (spoiler alert : <strong>they did actually</strong>).</p>
+<p>I tried different tools, some looked like spywares, some asked for money in order to decrypt my image but&hellip; anyway.</p>
+<p>I didn&rsquo;t find any program able to open my encrypted dmg image 🤦🏻‍♂️.</p>
+<p>I chose to dig into github and I found <a href="https://github.com/foxlet/dmg2img">dmg2img</a>.</p>
+<p>The idea is to convert the encrypted dmg image into a decrypted .img. Thus, maybe I&rsquo;ll have some more options to read its content.</p>
+<p>I cloned the repo on Windows but, because life isn&rsquo;t easy, it didn&rsquo;t work on my image because I didn&rsquo;t find any flag to deal with encryption.</p>
+<p>Thanksfully, I found another script called <a href="https://github.com/citruz/dmgwiz">DmgWiz</a> which is a dmg2img&rsquo;s clone with more features and written in Rust.</p>
+<p>I used it on my file and&hellip; ENFIN CA FONCTIONNE 🎉 :</p>
+<p>Here is the command I entered in Windows Terminal :</p>
+<p><code>.\dmgwiz.exe .\image.dmg -p &lt;password&gt; extract -o out.img</code></p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/dmgwiz.png" alt=""  />
+</p>
+<h2 id="lets-open-it">Let&rsquo;s open it<a hidden class="anchor" aria-hidden="true" href="#lets-open-it">#</a></h2>
+<p>Ok ! We now have a decrypted .img file under APFS.</p>
+<p>Before trying to open it with apfs-fuse again, maybe Windows has something to offer ?</p>
+<p>YES, the only software on Windows that allowed me to open my image is <a href="https://www.acutesystems.com/scrtm.htm">TransMac</a>.</p>
+<p>The only problem with it is that it runs for 15 days from installation to allow user evaluation.</p>
+<p><img loading="lazy" src="/posts/encrypted-dmg/transmac.png" alt=""  />
+</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>I wrote this post because it is too complicated (not hard, <strong>complicated</strong>) to deal with an encrypted dmg image on another OS than MacOS.</p>
+<p>Judging by Apple&rsquo;s philosophy, it actually is a great thing : you need to buy their device to avoid installing a paid third-party software to open an encrypted dmg file.</p>
+<p>I hope you found this post useful, and / or gave you some ideas.</p>
+<p>I think giving an encrypted dmg image in a CTF could be a cool idea :).</p>
+<h3 id="to-sum-up">To sum up<a hidden class="anchor" aria-hidden="true" href="#to-sum-up">#</a></h3>
+<p>To crack and open an encrypted dmg image, I needed to :</p>
+<ul>
+<li>
+<p>First, on Linux (or Windows)</p>
+<ul>
+<li><code>dmg2john image.dmg &gt; output</code></li>
+<li><code>john --wordlist=wordlist.txt output</code></li>
+</ul>
+</li>
+<li>
+<p>Then, on Windows</p>
+<ul>
+<li>Download <a href="https://github.com/citruz/dmgwiz/releases">dmgwiz.exe</a></li>
+<li>Run <code>.\dmgwiz.exe .\image.dmg -p &lt;password&gt; extract -o out.img</code> in Terminal</li>
+<li>Open <em>out.img</em> image with <a href="https://www.acutesystems.com/scrtm.htm">TransMac</a></li>
+<li>Done !</li>
+</ul>
+</li>
+<li>
+<p>What we would have done on MacOS :</p>
+<ul>
+<li>Crack it with john</li>
+<li>Double click on the dmg image and enter the password&hellip;</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://talebyanis.github.io/tags/cybersecurity/">cybersecurity</a></li>
+      <li><a href="http://talebyanis.github.io/tags/infosec/">infosec</a></li>
+      <li><a href="http://talebyanis.github.io/tags/macos/">macos</a></li>
+      <li><a href="http://talebyanis.github.io/tags/guide/">guide</a></li>
+      <li><a href="http://talebyanis.github.io/tags/forensic/">forensic</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://talebyanis.github.io/">🏠</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
